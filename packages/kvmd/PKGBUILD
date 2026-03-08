@@ -207,6 +207,14 @@ package_kvmd() {
 	install -Dm644 -t "$pkgdir/etc/kvmd" "$_cfg_default/kvmd"/web.css
 	mkdir -p "$pkgdir/etc/kvmd/override.d"
 
+	mkdir -p "$pkgdir/etc/kvmd/scripts"
+	chmod 755 "$pkgdir/etc/kvmd/scripts"
+	install -Dm755 -t "$pkgdir/etc/kvmd/scripts" "contrib/nanokvm/scripts"/*.sh
+
+	mkdir -p "$pkgdir/usr/bin"
+	chmod 755 "$pkgdir/usr/bin"
+	install -Dm755 -t "$pkgdir/usr/bin" "contrib/nanokvm/bin"/vcgencmd
+
 	mkdir -p "$pkgdir/var/lib/kvmd/"{msd,pst}
 	chmod 1775 "$pkgdir/var/lib/kvmd/pst"
 }
