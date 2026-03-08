@@ -20,6 +20,9 @@ md5sums=(SKIP SKIP SKIP SKIP SKIP SKIP SKIP)
 
 
 package() {
+	mkdir -p "$pkgdir/usr/bin"
+	cp nanokvm-motd "$pkgdir/usr/bin/nanokvm-motd"
+
 	mkdir -p "$pkgdir/usr/lib/systemd/system"
 	cp kvmd-webterm.service "$pkgdir/usr/lib/systemd/system/kvmd-webterm.service"
 
