@@ -26,6 +26,11 @@ if [ -e /usr/include/janus/plugins/plugin.h ];then
 	makedepends+=(janus-gateway-pikvm alsa-lib opus)
 	_options="$_options WITH_JANUS=1"
 fi
+if [ -e /usr/include/x264.h ];then
+	depends+=(x264 yuv)
+	makedepends+=(x264 yuv)
+	_options="$_options WITH_LIBX264=1"
+fi
 
 
 build() {
